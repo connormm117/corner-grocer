@@ -1,35 +1,72 @@
-Corner Grocer – Item Tracking Program (CS 210)
-Project Summary
-The Corner Grocer project is a C++ console application that reads a list of grocery items purchased throughout the day and counts how frequently each item is bought. This data is used to help the store optimize their layout by identifying high-traffic items. The program allows users to search for item frequencies, view a full list of items and counts, display a histogram, and export data to a backup file.
+# Corner Grocer Frequency Analysis System
 
-Reflection
-What problem did the project solve?
-This project helps a small grocery store analyze customer purchasing trends by tracking how many times each item is bought. This allows them to make informed decisions about how to organize their store more efficiently.
+## Overview
 
-What did I do particularly well?
-I used clear and maintainable C++ code to implement a clean, menu-based interface. I organized logic using a class, applied a map for tracking frequencies, and included file input/output that writes a backup file (frequency.dat) automatically at runtime. The use of case-insensitive search improved usability.
+The Corner Grocer Frequency Analysis System is a C++ console application designed to analyze grocery purchase data from a structured input file. The program processes item names, calculates frequency counts, and presents results through a user-friendly menu interface.
 
-Where could I enhance my code?
-To improve the program further, I could expand input validation and support more flexible formatting in the input file (e.g., handling commas or different casing automatically). I could also separate UI from logic more formally for better scalability. These changes would improve the program's security and adaptability.
+This project demonstrates applied knowledge in data structures, algorithmic design, file handling, defensive programming, and secure coding principles.
 
-What was most challenging?
-The most challenging part was managing case sensitivity when users typed item names. Items in the file were capitalized, but user input might be lowercase. I overcame this by converting the first character to uppercase and the rest to lowercase before searching the map. I also had to ensure the input file and executable were in the same location, which required testing file paths and project settings.
+---
 
-What tools or resources helped me?
-I relied on the C++ references in zyBooks, along with debugging features in Visual Studio, and basic file handling tutorials. ChatGPT also helped break down the project into manageable steps and provided feedback on my code.
+## Features
 
-What skills are transferable?
+- Case-insensitive item frequency search
+- Alphabetical frequency listing
+- Histogram visualization
+- Sorting by frequency count (descending)
+- Backup data file generation (`frequency.dat`)
+- Defensive input validation
+- Safe file handling with fail-safe behavior
 
-Using classes to encapsulate logic
+---
 
-Handling file I/O
+## Technical Implementation
 
-Utilizing standard library data structures like std::map
+### Data Structures
+- `std::unordered_map` used for O(1) average lookup and insertion
+- `std::vector` used for sorting and presentation
+- `std::stable_sort` for deterministic frequency sorting
 
-Implementing clear, readable code with inline comments
+### Algorithmic Complexity
+- Counting: O(n)
+- Lookup: O(1) average
+- Sorting: O(n log n)
 
-Designing menu-driven console applications
-These skills are all transferable to future C++ projects, Python scripting, and eventually larger-scale software development efforts.
+### Security & Reliability Enhancements
+- Input normalization to prevent case inconsistency
+- File existence validation before processing
+- Safe failure termination if critical resources are unavailable
+- Robust menu input validation to prevent infinite loops
+- Defensive checks against empty datasets
 
-How did I make the program maintainable and readable?
-I followed naming conventions, used inline comments to explain logic, and structured the program with a single class (GroceryTracker) to separate logic from the main() function. The map data structure made frequency tracking efficient and clean. The program is easy to adapt with additional features like item sorting or GUI integration in the future.
+---
+
+## File Structure
+
+- `CornerGrocer.cpp` – Main application logic
+- `CS210_Project_Three_Input_File.txt` – Input dataset
+- `frequency.dat` – Generated backup file
+
+---
+
+## How to Run
+
+1. Ensure `CS210_Project_Three_Input_File.txt` is in the same directory.
+2. Compile using a C++17-compatible compiler.
+3. Run the executable.
+4. Follow the menu prompts.
+
+---
+
+## Professional Context
+
+This project was enhanced as part of a Computer Science capstone portfolio to demonstrate growth in:
+
+- Algorithmic efficiency
+- Structural refactoring
+- Defensive programming
+- Security-aware development practices
+- Clean architectural design
+
+The enhancement reflects progression from basic functionality to production-quality, maintainable, and secure code.
+
